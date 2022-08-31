@@ -1,0 +1,37 @@
+Package: workflow
+Type: Package
+Title: Single-Cell Analysis Workflow
+Version: 0.1.0
+Author: Yubo Chang <yubo.cheng@roswellpark.org>
+Maintainer: Yubo Chang <yubo.cheng@roswellpark.org>
+Description: Provide a single-cell analysis Workflow as well as computing resources usage tracking with package Rcollectl.
+License: Artistic-2.0
+Encoding: UTF-8
+LazyData: true
+VignetteBuilder: knitr
+Depends:
+    R (>= 4.2.0)
+Suggests:
+    knitr,
+    BiocStyle,
+    rmarkdown,
+    ggplot2,
+    dplyr,
+    pheatmap,
+    sessioninfo,
+    devtools,
+    hca,
+    SingleCellExperiment,
+    LoomExperiment,
+    EnsDb.Hsapiens.v86,
+    scater,
+    BiocParallel,
+    scran,
+    batchelor,
+    BiocNeighbors,
+    uwot,
+    bluster,
+    celldex,
+    SingleR,
+    knitcitations,
+    yubocheng/Rcollectl@cl_timestamp
