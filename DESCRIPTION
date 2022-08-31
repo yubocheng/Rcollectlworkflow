@@ -33,10 +33,6 @@ Suggests:
     bluster,
     celldex,
     SingleR,
-<<<<<<< HEAD
     knitcitations
 Remotes:
-=======
-    knitcitations,
->>>>>>> 392ce445d0120c2c216ce2c8f692990e3341d920
     yubocheng/Rcollectl@cl_timestamp
