@@ -19,7 +19,4 @@ COPY install_Rcollectl.R /tmp/install_Rcollectl.R
 COPY run_Rcollectl.R /tmp/run_Rcollectl.R
 
 RUN Rscript /tmp/install_Rcollectl.R
-
-#CMD ["Rscript", "run_Rcollectl.R", "$knitr_eval", "$fileId", "$sample"] 
 CMD Rscript /tmp/run_Rcollectl.R $knitr_eval $fileId $sample
-
