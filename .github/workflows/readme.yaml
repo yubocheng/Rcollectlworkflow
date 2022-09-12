@@ -1,8 +1,8 @@
 on:
   push:
-    paths: ['inst/scripts/README.Rmd']
+    branches: master
 
-name: render-rmarkdown
+name: render readme
 
 jobs:
   render-rmarkdown:
@@ -38,7 +38,7 @@ jobs:
 
       - name: Render README
         run: |
-          Rscript -e 'rmarkdown::render(input = "inst/scripts/README.Rmd", output_dir = ".")'
+          Rscript -e 'rmarkdown::render(input = "inst/scripts/README.Rmd", , output_format = "md_document")'
 
       - name: Commit results
         run: |
