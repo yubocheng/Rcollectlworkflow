@@ -10,7 +10,6 @@ RUN wget "https://sourceforge.net/projects/collectl/files/latest/download" \
 	&& cd collectl-* \
 	&& ./INSTALL \
 	&& cd .. \
-	&& apt-get clean \
 	&& rm -rf download \
 	&& rm -rf collectl-* 
 
