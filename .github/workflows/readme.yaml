@@ -1,6 +1,6 @@
 on:
   push:
-    branches: master
+    paths: ['inst/scripts/README.Rmd']
 
 name: render readme
 
