@@ -1,6 +1,6 @@
 on:
   push:
-    paths: ['vignettes/**.Rmd']
+    paths: ['inst/scripts/README.Rmd']
 
 name: render-rmarkdown
 
