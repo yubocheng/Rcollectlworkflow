@@ -1,7 +1,5 @@
 ---
 output: github_document
-knit: (function(inputFile, encoding) {
-  rmarkdown::render(inputFile, encoding = encoding, output_dir = "../../") })
 ---
 
 ```{r, include = FALSE}
@@ -9,17 +7,15 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   cache = TRUE,
-  out.width = "100%"
+  out.width = "100%",
+  echo = TRUE, 
+  eval = FALSE
 )
 ```
 
 ```{r,echo=FALSE,eval=FALSE}
 ## Generate the ./README.md (relative to base folder)
 rmarkdown::render(input = "inst/scripts/README.Rmd", output_dir = ".")
-```
-
-```{r setup}
-knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
 ```
 
 # Rcollectl Workflow

@@ -38,12 +38,10 @@ jobs:
 
       - name: Render README
         run: |
-          Rscript -e 'rmarkdown::render(input = "inst/scripts/README.Rmd", , output_format = "md_document")'
+          Rscript -e 'rmarkdown::render(input = "inst/scripts/README.Rmd", output_format = "md_document")'
 
       - name: Commit results
         run: |
-          git config --local user.name "$GITHUB_ACTOR"
-          git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
           git add README.md
           git commit -m 'Re-build README.md file'
           git push origin
