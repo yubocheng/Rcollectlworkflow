@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 
 # Rcollectl Workflow
 
-The vignette in this package follows single-cell analysis Workflow (workflow chapters of the “Orchestrating Single-Cell Analysis with Bioconductor” book) to analyze loom file from HCA dataset and tracks computing resources usage with R package `Rcollectl`.
+The vignette in this package follows single-cell analysis workflow (workflow chapters of the “Orchestrating Single-Cell Analysis with Bioconductor” book) to analyze loom file from HCA dataset and tracks computing resources usage with R package `Rcollectl`.
 
 Suggested computing resources: 60 GB memory, 16 CPUs when parameter knitr_eval set to TRUE to knit the vignette.
 
