@@ -1,3 +1,17 @@
+---
+title: "Introduction"
+output:
+  html_document: default
+vignette: >
+  %\VignetteIndexEntry{Introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8} 
+---
+
+```{r setup}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+```
+
 # Rcollectl Workflow
 
 The vignette in this package follows single-cell analysis Workflow (workflow chapters of the “Orchestrating Single-Cell Analysis with Bioconductor” book) to analyze loom file from HCA dataset and tracks computing resources usage with R package `Rcollectl`.
