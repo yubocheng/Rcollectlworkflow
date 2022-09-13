@@ -38,7 +38,7 @@ jobs:
 
       - name: Render README
         run: |
-          Rscript -e 'rmarkdown::render(input = "inst/scripts/README.Rmd", output_format = "md_document")'
+          Rscript -e 'rmarkdown::render(input = "inst/scripts/README.Rmd", output_dir = ".", output_format = "md_document")'
 
       - name: Commit results
         run: |
