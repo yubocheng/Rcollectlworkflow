@@ -1,5 +1,7 @@
 ---
 output: github_document
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding, output_dir = "../../") })
 ---
 
 ```{r, include = FALSE}
@@ -7,28 +9,15 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   cache = TRUE,
-  out.width = "100%",
-  echo = TRUE, 
-  eval = FALSE
+  out.width = "100%"
 )
 ```
 
-# Rcollectl Workflow
-
-The vignette in this package follows single-cell analysis workflow (workflow chapters of the “Orchestrating Single-Cell Analysis with Bioconductor” book) to analyze loom file from HCA dataset and tracks computing resources usage with R package `Rcollectl`.
-
-Suggested computing resources: 60 GB memory, 16 CPUs when parameter knitr_eval set to TRUE to knit the vignette.
-
-Build docker image with files in inst/docker:
-```{bash, eval=FALSE}
-docker build -t bioconductor_docker_workflow_hca_loom:devel .
+```{r,echo=FALSE,eval=FALSE}
+## Generate the ./README.md (relative to base folder)
+rmarkdown::render(input = "inst/scripts/README.Rmd", output_dir = ".")
 ```
 
-Knit vignette with built docker image and generate output at LOCAL_DIRECTORY:
-```{bash, eval=FALSE}
-docker run -it -v LOCAL_DIRECTORY:/output --rm \
-	--env knitr_eval=FALSE \
-	--env fileId="1c0434e8-df9d-54f9-9534-74ae512b10de" \
-	--env sample="cell_suspension.biomaterial_core.biomaterial_id" \
-	bioconductor_docker_workflow_hca_loom:devel 
+```{r, child="../../vignettes/Introduction.Rmd"}
+
 ```

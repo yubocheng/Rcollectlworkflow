@@ -1,7 +1,9 @@
 on:
   push:
-    paths: ['inst/scripts/README.Rmd']
-
+    paths: 
+      - 'vignettes/Introduction.Rmd'
+      - '.github/workflows/readme.yaml'
+      
 name: render readme
 
 jobs:
@@ -25,15 +27,7 @@ jobs:
 
       - name: Query dependencies
         run: |
-          install.packages(c("remotes", "rmarkdown", "BiocManager"))
-        shell: Rscript {0}
-
-      - name: Install Dependencies
-        run: |
-          options(repos = c(CRAN = "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"))
-          BiocManager::install(version = "devel", ask = FALSE)
-          remotes::install_deps(dependencies = TRUE, repos = BiocManager::repositories())
-          remotes::install_local(repos = BiocManager::repositories())
+          install.packages(c("rmarkdown"))
         shell: Rscript {0}
 
       - name: Render README
