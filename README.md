@@ -1,5 +1,5 @@
 Rcollectl Workflow
-==================
+------------------
 
 The vignette in this package follows single-cell analysis workflow
 (workflow chapters of the “Orchestrating Single-Cell Analysis with
@@ -20,4 +20,4 @@ LOCAL\_DIRECTORY:
         --env knitr_eval=FALSE \
         --env fileId="1c0434e8-df9d-54f9-9534-74ae512b10de" \
         --env sample="cell_suspension.biomaterial_core.biomaterial_id" \
-        bioconductor_docker_workflow_hca_loom:devel 
+        bioconductor_docker_workflow_hca_loom:devel
