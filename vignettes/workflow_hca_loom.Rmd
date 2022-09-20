@@ -91,6 +91,8 @@ library(scater)
 rownames(sce_loom) <- uniquifyFeatureNames(substring(rowData(sce_loom)$ensembl_ids, 1, 15), names = rowData(sce_loom)$Gene)
 
 names(assays(sce_loom)) <- "counts"
+
+saveRDS(sce_loom, file = "sce_loom.rds")
 ```
 
 ## Step quality control
@@ -236,6 +238,7 @@ hpc <- HumanPrimaryCellAtlasData()
 
 library(SingleR)
 anno.single <- SingleR(se.aggregated, ref = hpc, labels = hpc$label.main, assay.type.test="sum")
+saveRDS(anno.single, file = "cell_type_classification.rds")
 anno.single
 ```
 

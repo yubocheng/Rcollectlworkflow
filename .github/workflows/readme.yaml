@@ -1,6 +1,6 @@
 on:
   push:
-    paths: 
+    paths:
       - 'vignettes/Introduction.Rmd'
       - '.github/workflows/readme.yaml'
       
