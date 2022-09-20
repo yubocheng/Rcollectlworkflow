@@ -4,10 +4,10 @@ on:
       - 'vignettes/Introduction.Rmd'
       - '.github/workflows/readme.yaml'
       
-name: render readme
+name: render-readme
 
 jobs:
-  render-rmarkdown:
+  render-readme:
     runs-on: ubuntu-latest
 
     env:
