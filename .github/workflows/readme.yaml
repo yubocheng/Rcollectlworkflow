@@ -3,6 +3,8 @@ on:
     paths:
       - 'vignettes/Introduction.Rmd'
       - '.github/workflows/readme.yaml'
+  
+  workflow_dispatch:
       
 name: render-readme
 
