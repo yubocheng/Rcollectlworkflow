@@ -1,7 +1,6 @@
 version: 1.0
 workflows:
-   - name: RcollectlWorkflow
-     subclass: WDL
+   - subclass: WDL
      primaryDescriptorPath: /inst/workflow/Rcollectlworkflow_hca_loom.wdl
      testParameterFiles:
          - /inst/workflow/Rcollectlworkflow_hca_loom_inputs.json
