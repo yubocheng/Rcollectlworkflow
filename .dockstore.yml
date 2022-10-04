@@ -1,8 +1,0 @@
-version: 1.1
-workflows:
-   - subclass: WDL
-     primaryDescriptorPath: /inst/workflow/Rcollectlworkflow_hca_loom.wdl
-     testParameterFiles: /inst/workflow/Rcollectlworkflow_hca_loom_inputs.json
-     authors:
-      - name: Yubo Cheng
-        email: Yubo.Cheng@roswellpark.org

@@ -5,6 +5,7 @@ task Rcollectl_hca_loom {
         Boolean knitr_eval
         String fileId
         String sample
+        Int mem_gb
     }
 
     command {
@@ -17,6 +18,7 @@ task Rcollectl_hca_loom {
 
     runtime {
         docker: "ycheng2022/bioconductor_docker_workflow_hca_loom:devel"
+        memory: mem_gb + "GB"
     }
 }
 
@@ -25,6 +27,7 @@ workflow RcollectlWorkflow {
         Boolean knitr_eval
         String fileId
         String sample
+        Int mem_gb
     }
 
     call Rcollectl_hca_loom {input: knitr_eval=knitr_eval, fileId=fileId, sample=sample}
