@@ -27,7 +27,7 @@ workflow RcollectlWorkflow {
         Boolean knitr_eval
         String fileId
         String sample
-        Int mem_gb
+        Int mem_gb = 60
     }
 
     call Rcollectl_hca_loom {input: knitr_eval=knitr_eval, fileId=fileId, sample=sample}
