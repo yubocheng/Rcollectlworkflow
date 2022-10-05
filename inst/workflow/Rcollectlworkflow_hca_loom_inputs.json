@@ -2,5 +2,5 @@
     "RcollectlWorkflow.knitr_eval": "FALSE",
     "RcollectlWorkflow.fileId": "1c0434e8-df9d-54f9-9534-74ae512b10de",
     "RcollectlWorkflow.sample": "cell_suspension.biomaterial_core.biomaterial_id",
-    "RcollectlWorkflow.Rcollectl_hca_loom.mem_gb": "60"
+    "RcollectlWorkflow.mem_gb": "60"
 }

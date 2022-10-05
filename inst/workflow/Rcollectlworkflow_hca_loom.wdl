@@ -23,6 +23,10 @@ task Rcollectl_hca_loom {
 }
 
 workflow RcollectlWorkflow {
+    meta {
+        description: "Provide a single-cell analysis Workflow as well as computing resources usage tracking with package Rcollectl"
+    }
+    
     input {
         Boolean knitr_eval
         String fileId
@@ -30,11 +34,11 @@ workflow RcollectlWorkflow {
         Int mem_gb = 60
     }
 
-    call Rcollectl_hca_loom {input: knitr_eval=knitr_eval, fileId=fileId, sample=sample}
-
-    meta {
-        author: "Yubo Cheng"
-        email: "Yubo.Cheng@roswellpark.org"
-        description: "Provide a single-cell analysis Workflow as well as computing resources usage tracking with package Rcollectl"
+    call Rcollectl_hca_loom {
+        input: 
+        knitr_eval = knitr_eval, 
+        fileId = fileId, 
+        sample = sample,
+        mem_gb = mem_gb
     }
 }
