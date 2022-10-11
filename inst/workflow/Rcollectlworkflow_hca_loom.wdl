@@ -41,4 +41,8 @@ workflow RcollectlWorkflow {
         sample = sample,
         mem_gb = mem_gb
     }
+    
+    output {
+    	File workflow_hca_loom = Rcollectl_hca_loom.workflow_hca_loom
+    }
 }
