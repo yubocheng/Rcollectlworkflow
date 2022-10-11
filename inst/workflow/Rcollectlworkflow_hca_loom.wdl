@@ -5,7 +5,7 @@ task Rcollectl_hca_loom {
         Boolean knitr_eval
         String fileId
         String sample
-        Int mem_gb
+        Int mem_gb = 60
     }
 
     command {
