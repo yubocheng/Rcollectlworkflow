@@ -18,7 +18,7 @@ task Rcollectl_hca_loom {
 
     runtime {
         docker: "ycheng2022/bioconductor_docker_workflow_hca_loom:devel"
-        memory: mem_gb + "GB"
+        memory: "${mem_gb} GB"
     }
 }
 
