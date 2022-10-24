@@ -38,7 +38,7 @@ update_file_avtable <- function(manifest_tibble, my_sample, mem_gb) {
     mutate(
       file = file_uuid,
       knitr_eval = TRUE,
-      sample = my_sample_2,
+      sample = my_sample,
       mem_gb = 60
     ) |>
     select(
