@@ -27,18 +27,18 @@ get_manifest_tibble <- function(filters) {
 #' @rdname update_file_avtable
 #' @importFrom hca AnVIL dplyr
 #' @param manifest_tibble result of hca manifest
-#' @param my_sample column from manifest_tibble to analyze
+#' @param sample column from manifest_tibble to analyze
 #' @param mem_gb memory to allocate for running the workflow, default: 60 GB
 #' @examples
-#' my_sample = "cell_suspension.biomaterial_core.biomaterial_id"
-#' update_file_avtable(manifest_tibble, my_sample)
+#' sample = "donor_organism.biomaterial_core.biomaterial_id"
+#' update_file_avtable(manifest_tibble, sample)
 #' @export
 update_file_avtable <- function(manifest_tibble, my_sample, mem_gb) {
   manifest_tibble |> 
     mutate(
       file = file_uuid,
       knitr_eval = TRUE,
-      sample = my_sample,
+      sample = sample,
       mem_gb = 60
     ) |>
     select(
@@ -51,8 +51,10 @@ update_file_avtable <- function(manifest_tibble, my_sample, mem_gb) {
       diseases = specimen_from_organism.diseases,
       organ = specimen_from_organism.organ,
       organ_part = specimen_from_organism.organ_part,
+      donor_organism_id = donor_organism.biomaterial_core.biomaterial_id,
       cell_suspension_id = cell_suspension.biomaterial_core.biomaterial_id,
-      donor_organism_id = donor_organism.biomaterial_core.biomaterial_id
+      sample_id = sample.biomaterial_core.biomaterial_id,
+      sequencing_input_id = sequencing_input.biomaterial_core.biomaterial_id
     ) |>
     avtable_import("file")
 }
