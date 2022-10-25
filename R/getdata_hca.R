@@ -33,7 +33,7 @@ get_manifest_tibble <- function(filters) {
 #' sample = "donor_organism.biomaterial_core.biomaterial_id"
 #' update_file_avtable(manifest_tibble, sample)
 #' @export
-update_file_avtable <- function(manifest_tibble, my_sample, mem_gb) {
+update_file_avtable <- function(manifest_tibble, sample, mem_gb) {
   manifest_tibble |> 
     mutate(
       file = file_uuid,
