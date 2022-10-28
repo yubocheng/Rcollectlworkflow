@@ -7,7 +7,7 @@ params:
   fileId: "902ac276-d7bf-5ae2-b89d-f80096a0b310"
   sample: "donor_organism.biomaterial_core.biomaterial_id"
 vignette: >
-  %\VignetteIndexEntry{Single-Cell Analysis Workflow of HCA Loom File}
+  %\VignetteIndexEntry{Single-Cell Analysis Workflow of HCA Loom File test}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8} 
 ---
