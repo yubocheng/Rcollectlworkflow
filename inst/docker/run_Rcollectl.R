@@ -3,4 +3,5 @@ args = commandArgs(trailingOnly=TRUE)
 
 v = vignette(topic="workflow_hca_loom", package = "Rcollectlworkflow")
 path = file.path(v$Dir, "doc", "workflow_hca_loom.Rmd")
-rmarkdown::render(path, output_dir = ".", params = list(knitr_eval=as.logical(args[1]), fileId=args[2], sample=args[3]))
+file.copy(from = path, to = getwd())
+rmarkdown::render("workflow_hca_loom.Rmd", output_dir = ".", params = list(knitr_eval=as.logical(args[1]), fileId=args[2], sample=args[3]))
