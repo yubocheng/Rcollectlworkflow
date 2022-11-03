@@ -18,6 +18,6 @@ LOCAL\_DIRECTORY:
 
     docker run -it -v LOCAL_DIRECTORY:/output --rm \
         --env knitr_eval=FALSE \
-        --env fileId="1c0434e8-df9d-54f9-9534-74ae512b10de" \
-        --env sample="cell_suspension.biomaterial_core.biomaterial_id" \
+        --env fileId="902ac276-d7bf-5ae2-b89d-f80096a0b310" \
+        --env sample="donor_organism.biomaterial_core.biomaterial_id" \
         bioconductor_docker_workflow_hca_loom:devel
