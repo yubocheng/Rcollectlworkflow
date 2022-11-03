@@ -17,5 +17,11 @@ RUN wget "https://sourceforge.net/projects/collectl/files/latest/download" \
 COPY install_Rcollectl.R /tmp/install_Rcollectl.R
 COPY run_Rcollectl.R /tmp/run_Rcollectl.R
 
-RUN Rscript /tmp/install_Rcollectl.R
-CMD Rscript /tmp/run_Rcollectl.R $knitr_eval $fileId $sample
+RUN chmod +x /tmp/install_Rcollectl.R
+RUN chmod +x /tmp/run_Rcollectl.R
+
+RUN /tmp/install_Rcollectl.R
+
+WORKDIR /output
+
+CMD /tmp/run_Rcollectl.R $knitr_eval $fileId $sample

@@ -44,7 +44,10 @@ sample <- params$sample
 ```
 
 ```{r, echo = TRUE, message=FALSE, eval=TRUE}
+## file id
 fileId
+
+## column selected for analysis
 sample
 ```
 
@@ -59,6 +62,12 @@ library(dplyr)
 
 ## identify target loom file
 myfile <- files(filters(fileId = list(is = fileId)))
+
+## project title
+myfile$projectTitle
+
+## file name
+myfile$name
 
 ## start Rcollectl
 id <- cl_start(gsub('.loom', '', myfile$name))

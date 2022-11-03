@@ -9,7 +9,7 @@ task Rcollectl_hca_loom {
     }
 
     command {
-        Rscript /tmp/run_Rcollectl.R ${knitr_eval} ${fileId} ${sample}
+        /tmp/run_Rcollectl.R ${knitr_eval} ${fileId} ${sample}
     }
 
     output {

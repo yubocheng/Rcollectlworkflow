@@ -1,7 +1,7 @@
-#!/usr/bin/env Rscript
+#! /usr/bin/env Rscript
 
 # Install required packages
-BiocManager::install(c("ggplot2", "lubridate", "dplyr", "pheatmap", "sessioninfo", "DT", "devtools", "GenomicFeatures", "tidyr", "hca", "matrixStats", "SummarizedExperiment", "SingleCellExperiment", "rhdf5", "LoomExperiment", "ensembldb", "EnsDb.Hsapiens.v86", "scater",  "BiocParallel", "scran", "batchelor", "BiocNeighbors", "uwot", "bluster", "celldex", "SingleR", "rmarkdown", "BiocStyle", "knitcitations", "viridis"))
+BiocManager::install(c("ggplot2", "dplyr", "pheatmap", "sessioninfo", "devtools", "GenomicFeatures", "tidyr", "hca", "matrixStats", "SingleCellExperiment", "LoomExperiment", "ensembldb", "EnsDb.Hsapiens.v86", "scater",  "BiocParallel", "scran", "batchelor", "BiocNeighbors", "uwot", "bluster", "celldex", "SingleR", "rmarkdown", "BiocStyle"))
 
 # Install Rcollectl
 BiocManager::install("vjcitn/Rcollectl")

@@ -1,4 +1,4 @@
-#!/usr/bin/env Rscript
+#! /usr/bin/env Rscript
 args = commandArgs(trailingOnly=TRUE)
 
 v = vignette(topic="workflow_hca_loom", package = "Rcollectlworkflow")
