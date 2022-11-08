@@ -16,6 +16,8 @@ task Rcollectl_hca_loom {
         File workflow_hca_loom_html = "workflow_hca_loom.html"
         File loom_rds = "sce_loom.rds"
         File cell_type_classification_rds = "cell_type_classification.rds"
+        Array[File] Rcollectl_result = glob("*.tab.gz")
+        Array[File] Rcollectl_timestamp = glob("*.timestamp.txt")
     }
 
     runtime {
@@ -48,5 +50,7 @@ workflow RcollectlWorkflow {
     	File workflow_hca_loom_html = Rcollectl_hca_loom.workflow_hca_loom_html
     	File loom_rds = Rcollectl_hca_loom.loom_rds
     	File cell_type_classification_rds = Rcollectl_hca_loom.cell_type_classification_rds
+    	Array[File] Rcollectl_result = Rcollectl_hca_loom.Rcollectl_result
+    	Array[File] Rcollectl_timestamp = Rcollectl_hca_loom.Rcollectl_timestamp
     }
 }
