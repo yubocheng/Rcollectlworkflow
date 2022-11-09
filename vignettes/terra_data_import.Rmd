@@ -1,0 +1,79 @@
+---
+title: "Data import from HCA"
+output: html_document
+vignette: >
+  %\VignetteIndexEntry{Data import from HCA}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8} 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The following codes import data of loom file(s) to analyze with workflow `Rcollectlworkflow` to table "file".
+
+## Install packages
+```{r, message=FALSE, warning=FALSE}
+BiocManager::install("hca")
+BiocManager::install("Bioconductor/AnVIL")
+BiocManager::install("LoomExperiment")
+BiocManager::install("yubocheng/Rcollectlworkflow")
+```
+
+## Get manifests
+
+Variable filters (HCA filter object) need to be provided to identify loom file(s) for analysis, then manifests of the file(s) can be retrieved.
+
+```{r, message=FALSE}
+library(hca)
+library(AnVIL)
+library(dplyr)
+library(Rcollectlworkflow)
+
+filters <- filters(
+  projectTitle = list(is = "Census of Immune Cells"),
+  organPart = list(is = "bone marrow"),
+  fileFormat = list(is = "loom"),
+  isIntermediate = list(is = FALSE))
+
+manifest_tibble <- get_manifest_tibble(filters)
+manifest_tibble
+```
+
+## Import manifest file date to table "file"
+
+Three variables: manifest_tibble, sample, mem_gb are needed to import file data to table "file". Sample should be one of column names from manifest_tibble, for example: donor_organism.biomaterial_core.biomaterial_id, cell_suspension.biomaterial_core.biomaterial_id, etc. Default value for mem_gb is 60 GB.
+
+```{r}
+sample = "donor_organism.biomaterial_core.biomaterial_id"
+update_file_avtable(manifest_tibble, sample)
+avtable("file")
+```
+
+## Run workflow
+
+To run `Rcollectlworkflow`, click Rcollectlworkflow under WORKFLOWS tab, select file as "Step 1 Select root entity type:". For INPUTS, select attribute this.file_id for variable fileId, attribute this.knitr_eval for variable knitr_eval, attribute this.sample for variable sample, and attribute this.mem_gb for variable mem_gb. For OUTPUTS, attributes could be filled in by "Use defaults". After saving the workflow, it could be run by selecting the loom file to analyze for "Step 2 SELECT DATA".
+
+## Pull workflow output
+
+Workflow outputs could be pulled and viewed with `R`.
+
+```{r, message=FALSE}
+avworkspace("bioconductor-rpci-yubo/Rcollectlworkflow")
+avworkflow_jobs()
+fls <- avworkflow_files()
+fls
+gsutil_cp(fls |> filter(file == "cell_type_classification.rds") |> pull("path"), ".")
+dir()
+readRDS("cell_type_classification.rds")
+```
+
+## `R` session information
+
+```{r session_info, echo=FALSE}
+## Session info
+library("sessioninfo")
+options(width = 120)
+session_info()
+```
