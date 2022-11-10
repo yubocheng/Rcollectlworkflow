@@ -111,7 +111,7 @@ cl_timestamp(id, "quality control")
 
 library(BiocParallel)
 library(scater)
-bpp <- MulticoreParam(parallel::detectCores())
+bpp <- MulticoreParam(floor(parallel::detectCores()*.6))  # just a suggestion ... using all cores means you need a LOT of RAM if you have a lot of cores
 sce_loom <- unfiltered <- addPerCellQC(sce_loom, BPPARAM=bpp, subsets=list(Mito=which(rowData(sce_loom)$Chr=="MT")))
 qc <- quickPerCellQC(colData(sce_loom), batch=sce_loom$sample, sub.fields="subsets_Mito_percent")
 
