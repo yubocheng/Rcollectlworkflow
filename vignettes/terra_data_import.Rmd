@@ -45,7 +45,7 @@ manifest_tibble
 
 Three variables: manifest_tibble, sample, mem_gb are needed to import file data to table "file". Sample should be one of column names from manifest_tibble, for example: donor_organism.biomaterial_core.biomaterial_id, cell_suspension.biomaterial_core.biomaterial_id, etc. Default value for mem_gb is 60 GB.
 
-```{r}
+```{r, eval=FALSE}
 sample = "donor_organism.biomaterial_core.biomaterial_id"
 update_file_avtable(manifest_tibble, sample)
 avtable("file")
@@ -59,7 +59,7 @@ To run `Rcollectlworkflow`, click Rcollectlworkflow under WORKFLOWS tab, select 
 
 Workflow outputs could be pulled and viewed with `R`.
 
-```{r, message=FALSE}
+```{r, message=FALSE, eval=FALSE}
 avworkspace("bioconductor-rpci-yubo/Rcollectlworkflow")
 avworkflow_jobs()
 fls <- avworkflow_files()
