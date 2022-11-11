@@ -109,6 +109,7 @@ if (params$core == 0) {
 } else {
   core <- params$core
 }
+core
 bpp <- MulticoreParam(core)
 
 sce_loom <- unfiltered <- addPerCellQC(sce_loom, BPPARAM=bpp, subsets=list(Mito=which(rowData(sce_loom)$Chr=="MT")))
