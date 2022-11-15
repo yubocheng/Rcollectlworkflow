@@ -6,6 +6,7 @@ params:
   knitr_eval: FALSE
   fileId: "902ac276-d7bf-5ae2-b89d-f80096a0b310"
   sample: "donor_organism.biomaterial_core.biomaterial_id"
+  core: 0
 vignette: >
   %\VignetteIndexEntry{Single-Cell Analysis Workflow of HCA Loom File}
   %\VignetteEngine{knitr::rmarkdown}
@@ -111,7 +112,14 @@ cl_timestamp(id, "quality control")
 
 library(BiocParallel)
 library(scater)
-bpp <- MulticoreParam(parallel::detectCores())
+
+if (params$core == 0) {
+  core <- floor(parallel::detectCores()*.6)
+} else {
+  core <- params$core
+}
+bpp <- MulticoreParam(core)
+
 sce_loom <- unfiltered <- addPerCellQC(sce_loom, BPPARAM=bpp, subsets=list(Mito=which(rowData(sce_loom)$Chr=="MT")))
 qc <- quickPerCellQC(colData(sce_loom), batch=sce_loom$sample, sub.fields="subsets_Mito_percent")
 

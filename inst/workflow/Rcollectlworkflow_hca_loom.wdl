@@ -5,11 +5,12 @@ task Rcollectl_hca_loom {
         Boolean knitr_eval
         String fileId
         String sample
+        Int core = 0
         Int mem_gb = 60
     }
 
     command {
-        /tmp/run_Rcollectl.R ${knitr_eval} ${fileId} ${sample}
+        /tmp/run_Rcollectl.R ${knitr_eval} ${fileId} ${sample} ${core}
     }
 
     output {
@@ -35,6 +36,7 @@ workflow RcollectlWorkflow {
         Boolean knitr_eval
         String fileId
         String sample
+        Int core = 0
         Int mem_gb = 60
     }
 
@@ -43,6 +45,7 @@ workflow RcollectlWorkflow {
         knitr_eval = knitr_eval, 
         fileId = fileId, 
         sample = sample,
+        core = core,
         mem_gb = mem_gb
     }
     
