@@ -43,11 +43,12 @@ manifest_tibble
 
 ## Import manifest file date to table "file"
 
-Three variables: manifest_tibble, sample, mem_gb are needed to import file data to table "file". Sample should be one of column names from manifest_tibble, for example: donor_organism.biomaterial_core.biomaterial_id, cell_suspension.biomaterial_core.biomaterial_id, etc. Default value for mem_gb is 60 GB.
+Four variables: manifest_tibble, sample, core, mem_gb are needed to import file data to table "file". Sample should be one of column names from manifest_tibble, for example: donor_organism.biomaterial_core.biomaterial_id, cell_suspension.biomaterial_core.biomaterial_id, etc. Core is number of cores required for the workflow to run, when using default value 0, `floor(parallel::detectCores()*.6)` is used as number of cores. Default value for mem_gb is 60 GB.
 
 ```{r, eval=FALSE}
 sample = "donor_organism.biomaterial_core.biomaterial_id"
-update_file_avtable(manifest_tibble, sample)
+core = 0
+update_file_avtable(manifest_tibble, sample, core)
 avtable("file")
 ```
 
