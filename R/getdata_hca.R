@@ -46,6 +46,7 @@ update_file_avtable <- function(manifest_tibble, sample, core, mem_gb) {
       file,
       knitr_eval,
       sample,
+      core,
       mem_gb,
       project_title = project.project_core.project_title,
       genus_species = donor_organism.genus_species,

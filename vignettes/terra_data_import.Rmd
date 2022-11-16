@@ -48,7 +48,7 @@ Four variables: manifest_tibble, sample, core, mem_gb are needed to import file 
 ```{r, eval=FALSE}
 sample = "donor_organism.biomaterial_core.biomaterial_id"
 core = 0
-update_file_avtable(manifest_tibble, sample, core)
+update_file_avtable(manifest_tibble, sample, core, mem_gb)
 avtable("file")
 ```
 
