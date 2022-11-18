@@ -7,7 +7,13 @@ Bioconductor” book) to analyze loom file from HCA dataset and tracks
 computing resources usage with R package `Rcollectl`.
 
 Suggested computing resources: 60 GB memory, 16 CPUs when parameter
-knitr\_eval set to TRUE to knit the vignette.
+knitr\_eval set to TRUE to knit the vignette. FileId is the file id of
+loom file to analyze. Sample should be one of column names from
+manifest\_tibble, for example:
+donor\_organism.biomaterial\_core.biomaterial\_id,
+cell\_suspension.biomaterial\_core.biomaterial\_id, etc. Core is number
+of cores required for the vignette to knit, when using default value 0,
+`floor(parallel::detectCores()*.6)` is used as number of cores.
 
 Build docker image with files in inst/docker:
 
