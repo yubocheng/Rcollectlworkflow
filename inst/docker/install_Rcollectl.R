@@ -7,4 +7,4 @@ BiocManager::install(c("ggplot2", "dplyr", "pheatmap", "sessioninfo", "devtools"
 BiocManager::install("vjcitn/Rcollectl")
 
 # Install workflow vignette
-BiocManager::install("yubocheng/Rcollectlworkflow", build_vignettes = TRUE, force = TRUE)
+BiocManager::install("yubocheng/Rcollectlworkflow", build_vignettes = TRUE)

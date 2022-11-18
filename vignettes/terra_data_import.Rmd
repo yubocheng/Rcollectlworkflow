@@ -54,7 +54,7 @@ avtable("file")
 
 ## Run workflow
 
-To run `Rcollectlworkflow`, click Rcollectlworkflow under WORKFLOWS tab, select file as "Step 1 Select root entity type:". For INPUTS, select attribute this.file_id for variable fileId, attribute this.knitr_eval for variable knitr_eval, attribute this.sample for variable sample, and attribute this.mem_gb for variable mem_gb. For OUTPUTS, attributes could be filled in by "Use defaults". After saving the workflow, it could be run by selecting the loom file to analyze for "Step 2 SELECT DATA".
+To run `Rcollectlworkflow`, click Rcollectlworkflow under WORKFLOWS tab, select file as "Step 1 Select root entity type:". For INPUTS, select attribute this.file_id for variable fileId, attribute this.knitr_eval for variable knitr_eval, attribute this.sample for variable sample. When using attribute this.mem_gb and this.core or leave as blank for variable mem_gb and core, default values will be applied. For OUTPUTS, attributes could be filled in by "Use defaults". After saving the workflow, it could be run by selecting the loom file to analyze for "Step 2 SELECT DATA".
 
 ## Pull workflow output
 

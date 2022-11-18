@@ -15,7 +15,7 @@ vignette: >
 
 The vignette in this package follows single-cell analysis workflow (workflow chapters of the “Orchestrating Single-Cell Analysis with Bioconductor” book) to analyze loom file from HCA dataset and tracks computing resources usage with R package `Rcollectl`.
 
-Suggested computing resources: 60 GB memory, 16 CPUs when parameter knitr_eval set to TRUE to knit the vignette.
+Suggested computing resources: 60 GB memory, 16 CPUs when parameter knitr_eval set to TRUE to knit the vignette. FileId is the file id of loom file to analyze. Sample should be one of column names from manifest_tibble, for example: donor_organism.biomaterial_core.biomaterial_id, cell_suspension.biomaterial_core.biomaterial_id, etc. Core is number of cores required for the vignette to knit, when using default value 0, `floor(parallel::detectCores()*.6)` is used as number of cores.
 
 Build docker image with files in inst/docker:
 ```{bash, eval=FALSE}
