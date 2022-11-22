@@ -7,6 +7,7 @@ params:
   fileId: "902ac276-d7bf-5ae2-b89d-f80096a0b310"
   sample: "donor_organism.biomaterial_core.biomaterial_id"
   core: 0
+  mem_gb: 60
 vignette: >
   %\VignetteIndexEntry{Single-Cell Analysis Workflow of HCA Loom File}
   %\VignetteEngine{knitr::rmarkdown}
@@ -45,11 +46,28 @@ sample <- params$sample
 ```
 
 ```{r, echo = TRUE, message=FALSE, eval=TRUE}
+if (params$core == 0) {
+  core <- floor(parallel::detectCores()*.6)
+} else {
+  core <- params$core
+}
+```
+
+```{r, echo = TRUE, message=FALSE, eval=TRUE}
 ## file id
 fileId
 
 ## column selected for analysis
 sample
+
+## number of cores detected
+message("cpu: ", parallel::detectCores())
+
+## number of cores used
+core
+
+## memory 
+message("memory: ", mem_gb, "GB")
 ```
 
 With two parameters set up, workflow could be started. 
@@ -113,11 +131,6 @@ cl_timestamp(id, "quality control")
 library(BiocParallel)
 library(scater)
 
-if (params$core == 0) {
-  core <- floor(parallel::detectCores()*.6)
-} else {
-  core <- params$core
-}
 bpp <- MulticoreParam(core)
 
 sce_loom <- unfiltered <- addPerCellQC(sce_loom, BPPARAM=bpp, subsets=list(Mito=which(rowData(sce_loom)$Chr=="MT")))

@@ -10,7 +10,7 @@ task Rcollectl_hca_loom {
     }
 
     command {
-        /tmp/run_Rcollectl.R ${knitr_eval} ${fileId} ${sample} ${core}
+        /tmp/run_Rcollectl.R ${knitr_eval} ${fileId} ${sample} ${core} ${mem_gb}
     }
 
     output {
