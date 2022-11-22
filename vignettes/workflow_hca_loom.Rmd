@@ -61,13 +61,13 @@ fileId
 sample
 
 ## number of cores detected
-message("cpu: ", parallel::detectCores())
+parallel::detectCores()
 
 ## number of cores used
 core
 
 ## memory 
-message("memory: ", mem_gb, "GB")
+paste0(params$mem_gb, " GB")
 ```
 
 With two parameters set up, workflow could be started. 
