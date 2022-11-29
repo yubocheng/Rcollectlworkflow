@@ -43,18 +43,17 @@ manifest_tibble
 
 ## Import manifest file date to table "file"
 
-Four variables: manifest_tibble, sample, core, mem_gb are needed to import file data to table "file". Sample should be one of column names from manifest_tibble, for example: donor_organism.biomaterial_core.biomaterial_id, cell_suspension.biomaterial_core.biomaterial_id, etc. Core is number of cores required for the workflow to run, when using default value 0, `floor(parallel::detectCores()*.6)` is used as number of cores. Default value for mem_gb is 60 GB.
+Four variables: manifest_tibble, sample, core, mem_gb are needed to import file data to table "file". Sample should be one of column names from manifest_tibble, for example: donor_organism.biomaterial_core.biomaterial_id, cell_suspension.biomaterial_core.biomaterial_id, etc. Core is number of CPU cores required for the workflow to run, and default value is 10. Mem_gb is memory required for the workflow, and default value is 60 GB.
 
 ```{r, eval=FALSE}
 sample = "donor_organism.biomaterial_core.biomaterial_id"
-core = 0
 update_file_avtable(manifest_tibble, sample, core, mem_gb)
 avtable("file")
 ```
 
 ## Run workflow
 
-To run `Rcollectlworkflow`, click Rcollectlworkflow under WORKFLOWS tab, select file as "Step 1 Select root entity type:". For INPUTS, select attribute this.file_id for variable fileId, attribute this.knitr_eval for variable knitr_eval, attribute this.sample for variable sample. When using attribute this.mem_gb and this.core or leave as blank for variable mem_gb and core, default values will be applied. For OUTPUTS, attributes could be filled in by "Use defaults". After saving the workflow, it could be run by selecting the loom file to analyze for "Step 2 SELECT DATA".
+To run `Rcollectlworkflow`, click Rcollectlworkflow under WORKFLOWS tab, select file as "Step 1 Select root entity type:". For INPUTS, select attribute this.file_id for variable fileId, attribute this.knitr_eval for variable knitr_eval, attribute this.sample for variable sample. When using attribute this.mem_gb and this.core or leave as blank for variables mem_gb and core, default values will be applied. For OUTPUTS, attributes could be filled in by "Use defaults". After saving the workflow, it could be run by selecting the loom file to analyze for "Step 2 SELECT DATA".
 
 ## Pull workflow output
 

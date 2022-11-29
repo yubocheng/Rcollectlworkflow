@@ -2,6 +2,6 @@
     "RcollectlWorkflow.knitr_eval": "TRUE",
     "RcollectlWorkflow.fileId": "902ac276-d7bf-5ae2-b89d-f80096a0b310",
     "RcollectlWorkflow.sample": "donor_organism.biomaterial_core.biomaterial_id",
-    "RcollectlWorkflow.core": 0,
+    "RcollectlWorkflow.core": 10,
     "RcollectlWorkflow.mem_gb": 60
 }

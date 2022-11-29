@@ -31,7 +31,7 @@ get_manifest_tibble <- function(filters) {
 #' @param mem_gb memory to allocate for running the workflow, default: 60 GB
 #' @examples
 #' sample = "donor_organism.biomaterial_core.biomaterial_id"
-#' update_file_avtable(manifest_tibble, sample)
+#' update_file_avtable(manifest_tibble, sample, core, mem_gb)
 #' @export
 update_file_avtable <- function(manifest_tibble, sample, core, mem_gb) {
   manifest_tibble |> 
@@ -39,7 +39,7 @@ update_file_avtable <- function(manifest_tibble, sample, core, mem_gb) {
       file = file_uuid,
       knitr_eval = TRUE,
       sample = sample,
-      core = core,
+      core = 10,
       mem_gb = 60
     ) |>
     select(

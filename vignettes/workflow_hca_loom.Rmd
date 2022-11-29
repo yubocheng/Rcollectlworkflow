@@ -6,7 +6,7 @@ params:
   knitr_eval: FALSE
   fileId: "902ac276-d7bf-5ae2-b89d-f80096a0b310"
   sample: "donor_organism.biomaterial_core.biomaterial_id"
-  core: 0
+  core: 10
   mem_gb: 60
 vignette: >
   %\VignetteIndexEntry{Single-Cell Analysis Workflow of HCA Loom File}
@@ -46,11 +46,7 @@ sample <- params$sample
 ```
 
 ```{r, echo = TRUE, message=FALSE, eval=TRUE}
-if (params$core == 0) {
-  core <- floor(parallel::detectCores()*.6)
-} else {
-  core <- params$core
-}
+core <- params$core
 ```
 
 ```{r, echo = TRUE, message=FALSE, eval=TRUE}
@@ -63,14 +59,14 @@ sample
 ## number of cores detected
 parallel::detectCores()
 
-## number of cores used
+## number of cores provided
 core
 
 ## memory 
 paste0(params$mem_gb, " GB")
 ```
 
-With two parameters set up, workflow could be started. 
+With parameters set up, workflow could be started. 
 
 ## Start for `Rcollectl` and download loom file
 

@@ -3,7 +3,7 @@ FROM bioconductor/bioconductor_docker:devel
 ENV knitr_eval FALSE
 ENV fileId "902ac276-d7bf-5ae2-b89d-f80096a0b310"
 ENV sample "donor_organism.biomaterial_core.biomaterial_id"
-ENV core 0
+ENV core 10
 ENV mem_gb 60
 
 # download and install collectl
